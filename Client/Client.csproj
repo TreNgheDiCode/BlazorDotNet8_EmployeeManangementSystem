@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\OtherPages\" />
+    <Folder Include="wwwroot\images\profile\" />
   </ItemGroup>
 
 </Project>
