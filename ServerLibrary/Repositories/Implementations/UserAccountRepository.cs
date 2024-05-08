@@ -22,7 +22,7 @@ namespace ServerLibrary.Repositories.Implementations
             if (user is null) return new GeneralResponse(false, "Model is empty");
 
             // Check if user already exists
-            var checkUser = await FindUserByEmail(user.Email);
+            var checkUser = await FindUserByEmail(user.Email!);
             if (checkUser is not null) return new GeneralResponse(false, "User already exists");
 
             // Create new user

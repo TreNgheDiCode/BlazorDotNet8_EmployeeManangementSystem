@@ -14,10 +14,6 @@ namespace ClientLibrary.Services.Implementations
         {
             var httpClient = getHttpClient.GetPublicHttpClient();
             var result = await httpClient.PostAsJsonAsync(AuthUrl + "/register", user);
-            if (!result.IsSuccessStatusCode)
-            {
-                return new GeneralResponse(false, "Failed to create user");
-            }
 
             return await result.Content.ReadFromJsonAsync<GeneralResponse>();
         }
@@ -34,10 +30,6 @@ namespace ClientLibrary.Services.Implementations
         {
             var httpClient = getHttpClient.GetPublicHttpClient();
             var result = await httpClient.PostAsJsonAsync(AuthUrl + "/login", user);
-            if (!result.IsSuccessStatusCode)
-            {
-                return new LoginResponse(false, "Failed to sign in");
-            }
 
             return await result.Content.ReadFromJsonAsync<LoginResponse>();
         }
@@ -46,10 +38,6 @@ namespace ClientLibrary.Services.Implementations
         {
             var httpClient = getHttpClient.GetPublicHttpClient();
             var result = await httpClient.PostAsJsonAsync(AuthUrl + "/refresh-token", refreshToken);
-            if (!result.IsSuccessStatusCode)
-            {
-                return new LoginResponse(false, "Failed to create user");
-            }
 
             return await result.Content.ReadFromJsonAsync<LoginResponse>();
         }

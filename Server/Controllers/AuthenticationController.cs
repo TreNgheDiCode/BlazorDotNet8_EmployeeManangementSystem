@@ -15,7 +15,14 @@ namespace Server.Controllers
         {
             if (user == null) return BadRequest("Model is empty");
             var result = await accountInterface.CreateAsync(user);
-            return Ok(result);
+            if (!result.Flag)
+            {
+                return BadRequest(result);
+            }
+            else
+            {
+                return Ok(result);
+            }
         }
 
         [HttpPost("login")]
@@ -23,7 +30,14 @@ namespace Server.Controllers
         {
             if (user == null) return BadRequest("Model is empty");
             var result = await accountInterface.SignInAsync(user);
-            return Ok(result);
+            if (!result.Flag)
+            {
+                return BadRequest(result);
+            }
+            else
+            {
+                return Ok(result);
+            }
         }
 
         [HttpPost("refresh-token")]
@@ -31,7 +45,13 @@ namespace Server.Controllers
         {
             if (refreshToken == null) return BadRequest("Model is empty");
             var result = await accountInterface.RefreshTokenAsync(refreshToken);
-            return Ok(result);
+            if (!result.Flag)
+            {
+                return BadRequest(result);
+            } else
+            {
+                return Ok(result);
+            }
         }
     }
 }

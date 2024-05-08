@@ -13,7 +13,10 @@
 @using ClientLibrary.Helpers
 @using Microsoft.AspNetCore.Components.Authorization
 @using ClientLibrary.Services.Contracts
+@using Syncfusion.Blazor.Popups
 
 @inject AuthenticationStateProvider AuthStateProvider
 @inject IUserAccountService accountService
 @inject NavigationManager NavManager
+
+@inject SfDialogService DialogService
